@@ -121,4 +121,48 @@ public class StringUtil {
 			return false;
 		
 		}
+		/**
+		* 功能：判断是否全部为字母
+		* 示例：
+		* StringUtil.isLetter(null) -> false
+		* StringUtil.isLetter("") -> false
+		* StringUtil.isLetter(".com") -> false
+		* StringUtil.isLetter("howSun") -> true
+		*/
+		public static boolean isLetter(String src){
+		    //判断是否为字母
+			return src != null && src.matches("[a-zA-Z]+");
+		}
+		
+		/**
+		* 功能：隐藏字符串
+		* 示例：
+		* StringUtil.hidden("13856237928", 3,7) -> "138****7928"
+		* 参数1：src，源字符串
+		* 参数2：start，从开始的位置隐藏，如果为空，则全部不隐藏，
+		* 参数3：end，结束位置，如果为空或为-1，则直到末尾都隐藏，如果超过源字符串长度，则只到末尾
+		*/
+		public static String hidden(String src, Integer start, Integer end){
+			if (src.length() != 11) {
+
+				throw new RuntimeException("您输入的手机号长度错误");
+			}
+			//先定义一个 要隐藏的内容
+			String s = "*";
+			String src1 = src.substring(start);//开始切割
+			if (end == null || end < 0) {
+				for (int i = 0; i < src1.length() - 1; i++) {
+					s+= "*";
+				}
+				return src.substring(0, start) + s;
+			}
+			if (end != null && start != null) {
+				for (int i = 0; i < end - start - 1; i++) {
+					s += "*";
+				}
+			}
+			return src.substring(0,start) +s+ src.substring(end);
+		}
+		
+		
 }

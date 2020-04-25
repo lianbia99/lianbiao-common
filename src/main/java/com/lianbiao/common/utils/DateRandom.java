@@ -1,5 +1,6 @@
 package com.lianbiao.common.utils;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -15,7 +16,14 @@ public class DateRandom {
 		return new Date(date);
 	}
 	
-
+	/**
+	 * 
+	 * @Title: getBirthdayBybirth 
+	 * @Description: 获取一个人的年龄
+	 * @param birth
+	 * @return
+	 * @return: int
+	 */
 	public static int getBirthdayBybirth(Date birth) {
 		Calendar c=Calendar.getInstance();
 		//出生日期初始化日历类
@@ -94,5 +102,78 @@ public class DateRandom {
 		//让系统时间减去1天
 		c.add(Calendar.DAY_OF_MONTH, -1);
 		return c.getTime();
+	}
+	
+	/**
+	* 功能：获取当前日期指定天数之前或之后的日期，如果参数为负数，则往前回滚。
+	* 示例1：当前是2018-08-08，参数days=5，结果是2018-08-13
+	* 示例2：当前是2018-08-08，参数days=-4，结果是2018-08-04
+	* 
+	* @param int days 偏移的天数，如果为负数则往前回滚。
+	* @return Date 新日期
+	*/
+	/*
+	 * public static Date offsetDate(int days) { Calendar today =
+	 * Calendar.getInstance();
+	 * 
+	 * today.set(today.getTime().getYear(),today.getTime().getMonth(),
+	 * today.getTime().getDay()+days);
+	 * 
+	 * return today.getTime();
+	 * 
+	 * }
+	 */
+	
+	/**
+	* 功能：获取当前季节，如春季、夏季、秋季、冬季。
+	* 
+	* @return Season 季节
+	*/
+	public static Season getCurrentSeason() {
+		Calendar today = Calendar.getInstance();
+		int month = today.get(Calendar.MONTH) + 1;
+		
+		if(month < 7){
+			if(month <=3 ){
+				return Season.SPRING;
+			}
+			else{
+				return Season.SUMMER;
+			}
+		}else{
+			if(month <= 9 ){
+				return Season.AUTUMN;
+			}
+			else{
+				return Season.WINTER;
+			}
+		}
+	}
+	
+	/**
+	 * 说明：季节枚举<br>
+	 * 
+	 * @author  zhangjihao(mailto:zhangjihao@sohu.com)
+	 * @version v1.0
+	 * 创建于：2020年4月24日 下午2:18:29
+	 */
+	public enum Season{
+		SPRING,SUMMER,AUTUMN,WINTER
+	}
+	
+	
+	/**
+	* 功能：获取人性化时间，例如5分钟之内则显示“刚刚”，其它显示16分钟前、2小时前、3天前、4月前、5年前等
+	*
+	* @param Date date 源时间。
+	* @return 人性化时间
+	*/
+	public static String getDisplayTime(Date date){
+		  long interval = (date.getTime() - new Date().getTime())/10000;
+		  if(interval>=5) {
+			  return "刚刚";
+		  }else {
+			  return "000";
+		  }
 	}
 }

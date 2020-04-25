@@ -14,7 +14,7 @@ public class RandomUtilTest {
 
 	@Test
 	public void testSubRandom() {
-		int[] sub = RandomUtil.subRandom(1, 3, 2);
+		int[] sub = RandomUtil.subRandom(1, 5, 2);
 		for (int i : sub) {
 			System.out.println(i);
 		}
@@ -28,7 +28,7 @@ public class RandomUtilTest {
 
 	@Test
 	public void testRandomString() {
-		String str = RandomUtil.randomString(4);
+		String str = RandomUtil.randomString(5);
 		System.out.println(str);
 	}
 

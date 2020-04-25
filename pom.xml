@@ -3,11 +3,58 @@
   <groupId>lianbiao</groupId>
   <artifactId>lianbiao-common2</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  <!-- 开发者信息 -->
+	<developers>
+		<developer>
+			<name>lianbiao</name>
+			<email>lianbiao@sohu.com</email>
+			<url>http://blog.csdn.net/lianbiao</url>
+		</developer>
+	</developers>
+
+	<url>https://github.com/lianbia99/lianbiao-common.git</url>
   <dependencies>
   	<dependency>
   		<groupId>junit</groupId>
   		<artifactId>junit</artifactId>
   		<version>4.12</version>
   	</dependency>
+  	<dependency>
+  		<groupId>javax.servlet</groupId>
+  		<artifactId>javax.servlet-api</artifactId>
+  		<version>3.1.0</version>
+  		<scope>provided</scope>
+  	</dependency>
   </dependencies>
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-compiler-plugin</artifactId>
+  			<configuration>
+  				<source>1.8</source>
+  				<target>1.8</target>
+  				<encoding>${maven.compiler.encoding}</encoding>
+  			</configuration>
+  		</plugin>
+  		
+  			<!-- javadoc:javadoc -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<defaultAuthor>彪哥</defaultAuthor>
+					<doctitle>彪哥工具包</doctitle>
+					<encoding>UTF-8</encoding><!-- 源文件编码 -->
+					<docencoding>UTF-8</docencoding><!-- Html编码 -->
+					<charset>UTF-8</charset><!-- Html字符集 -->
+					<header>彪哥工具包</header>
+					<overview>彪哥工具包总共包括8大类，60多个工具方法。</overview>
+					<bottom><![CDATA[Copyright 2020, Power by <a href="mailto:2366389936@qq.com">2366389936@qq.com<a>]]></bottom>
+				</configuration>
+			</plugin>
+  	</plugins>
+  
+  </build>
 </project>

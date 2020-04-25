@@ -20,10 +20,16 @@ public class StringUtilTest {
 
 	@Test
 	public void testRandomChineseString() {
-		String str = StringUtil.randomChineseString(3);
+		String str = StringUtil.randomChineseString(4);
 		System.out.println(str);
 	}
 
+	@Test
+	public void testrandomChineseString() {
+		String str = StringUtil.randomChineseString();
+		System.out.println(str);
+	}
+	
 	@Test
 	public void testGenerateChineseName() {
 		String name = StringUtil.generateChineseName();
@@ -46,5 +52,14 @@ public class StringUtilTest {
 	@Test
 	public void ishttp() {
 		System.out.println(StringUtil.isHttpUrl("https://www.baidu.com/"));
+	}
+	
+	@Test
+	public void testIsLetter() {
+		System.out.println(StringUtil.isLetter("sdff"));
+	}
+	@Test
+	public void testHidden() {
+		System.out.println(StringUtil.hidden("15735508554", 3, 7));
 	}
 }
